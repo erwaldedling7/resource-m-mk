@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩指南 · 简明专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f3f0;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #2c2b28;
+        }
+
+        /* ----- 深色头图 hero ----- */
+        .hero {
+            background: linear-gradient(145deg, #1a1c1f 0%, #2f3136 100%);
+            padding: 5rem 1.5rem 4.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(220, 180, 100, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #e8e5df;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero p {
+            color: #b6b2ab;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 350;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ----- 浅色正文主容器 ----- */
+        .content {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 2.5rem;
+            background: #fcfaf7;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 4px 16px rgba(0, 0, 0, 0.02);
+            border-radius: 20px;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 5;
+        }
+
+        @media (max-width: 680px) {
+            .content {
+                padding: 2rem 1.2rem 2rem;
+                margin-left: 0.8rem;
+                margin-right: 0.8rem;
+                border-radius: 16px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 480;
+            margin: 1.8rem 0 0.8rem;
+            color: #1e1c18;
+            border-left: 3px solid #c7a35c;
+            padding-left: 0.9rem;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #3b3a36;
+        }
+
+        /* ----- 强调色链接 ----- */
+        a {
+            color: #b48a3e;
+            text-decoration: none;
+            font-weight: 470;
+            border-bottom: 1px solid rgba(180, 138, 62, 0.25);
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        a:hover {
+            color: #8b6a2c;
+            border-bottom-color: #8b6a2c;
+        }
+
+        /* 卡片模块 —— 三段自然介绍用 */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .card-item {
+            flex: 1 1 220px;
+            background: #ffffff;
+            padding: 1.5rem 1.3rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #ece9e3;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-item h3 {
+            font-size: 1.15rem;
+            font-weight: 460;
+            color: #252320;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.01em;
+        }
+
+        .card-item p {
+            font-size: 0.95rem;
+            color: #4b4944;
+            margin-bottom: 0;
+        }
+
+        .card-item .icon {
+            display: inline-block;
+            font-size: 1.6rem;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            opacity: 0.7;
+        }
+
+        /* 简短的 FAQ 摘要区 (融合在正文段里) */
+        .faq-mini {
+            background: #f7f5f0;
+            padding: 1.5rem 1.8rem;
+            border-radius: 18px;
+            margin: 2rem 0 1.2rem;
+            border-left: 3px solid #c7a35c;
+        }
+
+        .faq-mini dt {
+            font-weight: 510;
+            margin-top: 0.8rem;
+            color: #26231e;
+        }
+
+        .faq-mini dd {
+            margin-left: 0.2rem;
+            color: #4b4944;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini dt:first-of-type {
+            margin-top: 0;
+        }
+
+        /* 页尾访问提示区 */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e2ddd5;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #6b6862;
+        }
+
+        .footer-note span {
+            opacity: 0.6;
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .button-ghost {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #c7a35c;
+            color: #8b6a2c;
+            padding: 0.45rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 460;
+            margin-top: 0.6rem;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            border-bottom: 1px solid #c7a35c;
+        }
+
+        .button-ghost:hover {
+            background: #c7a35c;
+            color: #1c1a16;
+            border-color: #c7a35c;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 500px) {
+            .card-item {
+                flex: 1 1 100%;
+            }
+            .faq-mini {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色 hero 横幅 -->
+    <section class="hero">
+        <h1>从简明指南开始</h1>
+        <p>面对一项信息庞杂的领域，有时只需一个清晰的入口与几段平实的提醒。这里是一份关于「竞彩」的概述与访问备忘。</p>
+    </section>
+
+    <!-- 主体内容区 -->
+    <main class="content">
+
+        <!-- 背景说明 -->
+        <h2 class="section-title">为什么这份背景说明值得一读</h2>
+        <p>
+            许多人对体育竞赛结合小额的投注选择并不陌生，但真正想了解规则、赛程以及合规平台时，往往会被大量碎片信息淹没。这篇专题既不贩卖技巧，也不夸大收益，只希望用克制的语言帮你搭建一个简洁的认知框架：你需要知道什么，可以去哪里查看，以及如何保持理性。
+        </p>
+
+        <!-- 三段自然介绍 用卡片形式 -->
+        <div class="cards">
+            <div class="card-item">
+                <div class="icon">📋</div>
+                <h3>信息查阅方式</h3>
+                <p>赛前数据、赔率变动与赛事预告，通常都会在平台首页集中展示。不必急于决策，建议先浏览两三天，熟悉展示逻辑与更新频率。</p>
+            </div>
+            <div class="card-item">
+                <div class="icon">🔍</div>
+                <h3>选择的边界</h3>
+                <p>任何形式的竞猜都应基于个人判断与兴趣，而非盲从预测。保持小额、分散、有计划的参与方式，往往更能体会到赛事本身的趣味。</p>
+            </div>
+            <div class="card-item">
+                <div class="icon">🧾</div>
+                <h3>记录与回顾</h3>
+                <p>养成随手记录的习惯：日期、场次、理由。月底花十分钟回顾，你会更清楚自己的偏好与盲区——这比单次结果更有价值。</p>
+            </div>
+        </div>
+
+        <!-- 穿插一段叙述感的场景文字 -->
+        <p>
+            几年前我开始留意竞彩信息时，最困扰的并不是“选哪场”，而是找不到一个入口能干干净净地展示对阵、时间与基础说明。后来一位朋友提到，他每次都会直接打开 <a href="https://siteofficial-jingcai.com">竞彩网</a> 作为起点——页面结构清晰，更新也及时。我试了几次，确实省去不少筛选成本。如今它仍是我查基础信息的第一站，谈不上完美，但够直接。
+        </p>
+
+        <!-- FAQ 摘要（自然融入） -->
+        <h2 class="section-title">几个常被问到的点</h2>
+        <dl class="faq-mini">
+            <dt>我完全没接触过，从哪里看起？</dt>
+            <dd>首页通常分「今日赛事」和「近期预告」两大块。先看预告，选一两个你熟悉的联赛，观察两天赔率走势，再小额尝试。</dd>
+            <dt>信息可靠吗？</dt>
+            <dd>数据源来自官方或合作机构，时效性有保障。但赔率会动态调整，最终请以截至投注时的页面为准。</dd>
+            <dt>有没有必要装很多App？</dt>
+            <dd>不一定。一个稳定的网页端其实更方便，尤其适合在电脑前比对数据。<a href="https://siteofficial-jingcai.com">竞彩网</a> 本身就能满足大部分查询需求，手机浏览器适配也做得不错。</dd>
+        </dl>
+
+        <!-- 特点与场景 混合段 -->
+        <h2 class="section-title">使用场景举例</h2>
+        <p>
+            周五晚上七点，你打开页面，看到周末五大联赛的初盘已经挂出。不用注册，不用登录，直接就能浏览全部对阵和水位。你可以把感兴趣的场次截个图，或者写两行备注——等赛前两小时再看一次，往往会有新的判断。这就是一个典型的、低门槛的使用场景。不需要复杂的工具，一个稳定的站点加一点耐心就够了。
+        </p>
+
+        <!-- 页尾访问提示（无诱导，平实叙述） -->
+        <div class="footer-note">
+            <p style="margin-bottom: 0.2rem;">如果你也习惯把某个站点作为起点，不妨试试 <a href="https://siteofficial-jingcai.com">竞彩网</a> 的当前页面布局。信息组织方式每年会有微调，但整体逻辑一直很直觉。</p>
+            <p style="margin-top: 0.6rem; font-size: 0.9rem; color: #7a756e;">无论选择哪条路径，都希望你在了解信息的过程中保持自己的节奏。</p>
+            <span>—— 2025 · 简明专题 ——</span>
+        </div>
+
+    </main>
+
+</body>
+</html>
