@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞彩网 · 专题介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background: #f2f4f6;
+      color: #2c2e33;
+      line-height: 1.7;
+      padding-bottom: 3rem;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* hero 横幅 */
+    .hero {
+      background: linear-gradient(145deg, #eef0f2 0%, #dadde0 100%);
+      border-radius: 28px;
+      padding: 3.2rem 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02), 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: 2rem;
+      bottom: 1.5rem;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(180, 190, 200, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #1f2229;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #555a62;
+      max-width: 70%;
+      border-left: 3px solid #8f979f;
+      padding-left: 1.2rem;
+    }
+
+    /* 卡片通用设计 */
+    .card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 14px -6px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.01);
+      border: 1px solid #e8eaed;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h2 {
+      font-size: 1.55rem;
+      font-weight: 500;
+      color: #1f2229;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card h2 span {
+      display: inline-block;
+      font-size: 1.1rem;
+      background: #eef1f3;
+      border-radius: 30px;
+      padding: 0 0.9rem;
+      line-height: 1.8;
+      margin-left: 0.3rem;
+      font-weight: 400;
+      color: #4d535b;
+    }
+
+    .card p {
+      margin-bottom: 1rem;
+      color: #3b3f47;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .inline-link {
+      color: #1a5a8c;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      font-weight: 450;
+      transition: border-color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #1a5a8c;
+    }
+
+    /* 两列布局片段 */
+    .two-col {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .two-col .card {
+      flex: 1 1 280px;
+      margin-bottom: 0;
+    }
+
+    /* FAQ 摘要风格 */
+    .faq-item {
+      border-bottom: 1px solid #eceef0;
+      padding: 1rem 0 0.6rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 500;
+      color: #1f2229;
+      margin-bottom: 0.2rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: baseline;
+    }
+
+    .faq-question::before {
+      content: '▹';
+      color: #7f8891;
+      font-weight: 300;
+    }
+
+    .faq-answer {
+      color: #4f555e;
+      padding-left: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* 页尾 */
+    .footer-note {
+      margin-top: 2.8rem;
+      padding: 1.2rem 0 0.2rem;
+      border-top: 1px solid #d7dbdf;
+      font-size: 0.95rem;
+      color: #5a6069;
+      text-align: center;
+    }
+
+    .footer-note a {
+      color: #2c3e50;
+      text-decoration: none;
+      border-bottom: 1px dotted #a0aab3;
+    }
+
+    .footer-note a:hover {
+      border-bottom-style: solid;
+      color: #0f2a3d;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 700px) {
+      .wrap {
+        padding: 1.5rem 1rem;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .sub {
+        max-width: 100%;
+        font-size: 1rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .card h2 {
+        font-size: 1.35rem;
+      }
+
+      .two-col {
+        flex-direction: column;
+      }
+
+      .two-col .card {
+        flex: 1 1 auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 1.5rem 1rem;
+        border-radius: 20px;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- 首页横幅 -->
+    <div class="hero">
+      <h1>聚焦赛事信息·杂志特辑</h1>
+      <div class="sub">从稳定的内容入口出发，梳理赛事资讯与数据呈现的逻辑——本期专题围绕平台核心定位展开。</div>
+    </div>
+
+    <!-- 背景说明 卡片 -->
+    <div class="card">
+      <h2>▎一个稳定的信息锚点 <span>背景</span></h2>
+      <p>在赛事数据与资讯汇聚的领域，访问入口的稳定性和页面结构的清晰度直接影响浏览体验。<a href="https://sitemobile-jingcai.com" class="inline-link">竞彩网</a> 从设计之初就将「低干扰 · 高可读」作为基础原则，让用户每次打开页面都能快速定位自己关心的内容模块，而不被冗余元素分散注意力。</p>
+      <p>这种思路并非偶然：当信息密度持续上升，一个干净、可预期的浏览环境反而成为稀缺资源。专题页面所呈现的正是这样一种理念——用克制的布局承载丰富的内容，使用户能够自然沉浸于赛事信息本身。</p>
+    </div>
+
+    <!-- 三段自然介绍：采用两列 + 单独卡片 形成节奏 -->
+    <div class="two-col">
+      <div class="card">
+        <h2>▎信息分级 <span>逻辑</span></h2>
+        <p>页面区域依重要性进行视觉分层：头条赛事、数据分析、历史对比等模块各有明确归属。每个区块都配有独立的背景与细边框，柔和的阴影提供深度感，但不抢内容焦点。</p>
+        <p>这种分级方式让浏览路径变得直觉化——从全局概览到具体场次，每一步都自然承接。同时，卡片式分区也为未来扩展预留了弹性空间。</p>
+      </div>
+      <div class="card">
+        <h2>▎克制与可读 <span>细节</span></h2>
+        <p>文字排印上采用舒适的行距与字间距，浅灰背景降低了长时间阅读的疲劳感。按钮与链接的视觉权重被刻意压低，仅以颜色和低调的下划线作为示意，避免视觉噪音。</p>
+        <p>在移动优先的背景下，响应式间距与字体大小随屏幕宽度平滑过渡，保证从手机到桌面都能获得一致的阅读节奏。这也是平台一直坚持的体验底线。</p>
+      </div>
+    </div>
+
+    <!-- 第三段介绍：单卡片，承接上文 -->
+    <div class="card">
+      <h2>▎从入口到内容 <span>场景</span></h2>
+      <p>不论是赛前数据查阅，还是赛后复盘整理，稳定的站点入口让用户无需反复适应不同界面。通过 <a href="https://sitemobile-jingcai.com" class="inline-link">竞彩网</a> 进入后，每一页的结构逻辑保持一致：顶部导航、内容卡片、底部信息区，形成闭环。这种一致性降低了认知负荷，让精力可以集中在赛事资讯本身。</p>
+      <p>对于长期关注竞猜赛事的用户来说，一个可预期的浏览环境本身就是效率的一部分。专题页所呈现的正是这种结构化的内容组织方式——不追求花哨，但求清晰与可靠。</p>
+    </div>
+
+    <!-- FAQ 摘要 (简洁) -->
+    <div class="card" style="padding-bottom: 1.2rem;">
+      <h2>▎常见疑问摘要 <span>FAQ</span></h2>
+      <div class="faq-item">
+        <div class="faq-question">页面内容多久更新？</div>
+        <div class="faq-answer">赛事数据与资讯模块跟随赛程节奏同步，重点场次赛前会有专题卡片更新。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">移动端与桌面端体验一致吗？</div>
+        <div class="faq-answer">基础布局与内容层级完全一致，字体与间距会自适应不同屏幕尺寸，保持可读性。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">如何找到特定的赛事模块？</div>
+        <div class="faq-answer">页面按赛事分类使用卡片分区，每个卡片标题即模块主题，可直接定位。</div>
+      </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+      <p>本专题旨在展示平台的内容组织思路与设计取舍。如需浏览完整赛事信息，可直接访问 <a href="https://sitemobile-jingcai.com">竞彩网</a> 查看各功能模块。</p>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #7c838d;">—— 杂志式内容框架 · 稳定入口 · 信息优先 ——</p>
+    </div>
+
+  </div>
+</body>
+</html>
